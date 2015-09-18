@@ -1,6 +1,8 @@
 $( function() {
     edflockGameWeb = new EdflockGameWeb("iframe");
-    var point = 0;
+    var point = 0,
+    	lifeLeft = 5;
+    $("#badge").hide();
 
     function updatePoints(pt) {
         point += pt;
@@ -11,14 +13,12 @@ $( function() {
         $("#badgeName").html(data.name);
         $("#badgeImage").attr('src', data.badgeUrl);
         $("#badgeName").data('id', data.id);
-        $("#badgeModal").modal('show');
+    	$("#badge").show();
     }
 
     function updateLife(life) {
-        var sel = $("#lifeIndicator i:gt("+(life-1)+")");
-        sel.each(function(index, elem) {
-            $(elem).removeClass('fa-heart').addClass('fa-heart-o');
-        })
+        lifeLeft = life;
+        $("#life").html(lifeLeft);
     }
 
 
