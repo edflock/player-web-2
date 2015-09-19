@@ -6,10 +6,10 @@
 
         if (window.addEventListener) {
             // For standards-compliant web browsers
-            iframe.addEventListener("message", parseMessage, false);
+            window.addEventListener("message", parseMessage, false);
         }
         else {
-            iframe.attachEvent("onmessage", parseMessage);
+            window.attachEvent("onmessage", parseMessage);
         }
 
         function parseMessage(event) {
